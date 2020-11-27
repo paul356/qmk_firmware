@@ -14,4 +14,27 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-#include "filco_f401.h"
+#include "filco_tkl401.h"
+
+void keyboard_post_init_user(void) {
+    palSetLineMode(C13, PAL_MODE_OUTPUT_PUSHPULL);
+}
+
+static bool keyState = false;
+bool process_record_kb(uint16_t keycode, keyrecord_t *record)
+{
+    switch (keycode) {
+    case KC_ESC:
+        if (record->event.pressed) {
+            keyState = !keyState;
+            if (keyState) {
+                palSetLine(C13);
+            } else {
+                palClearLine(C13);
+            }
+        }
+        return true;
+    default:
+        return true;
+    }
+}

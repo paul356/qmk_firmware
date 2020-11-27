@@ -27,14 +27,14 @@
 #define MATRIX_ROWS 18
 #define MATRIX_COLS 8
 
-#define MATRIX_ROW_PINS { A6, A5, A4, A3, A2 }
-#define MATRIX_COL_PINS { B10, B1, B0, B15, A8, B3, B4, B5, B6, B7, B8, B9 }
+#define MATRIX_ROW_PINS { A0, A1, A2, A3, A4, A5, A6, A7, B0, B1, B2, B3, B4, B5, B6, B7, B8, B9 }
+#define MATRIX_COL_PINS { A8, A9, A10, B10, B12, B13, B14, B15 }
 #define UNUSED_PINS
 
 #define DIODE_DIRECTION COL2ROW
 
-#define BACKLIGHT_PIN           A0
-#define BACKLIGHT_LEVELS         5
+//#define BACKLIGHT_PIN           A15
+//#define BACKLIGHT_LEVELS         5
 
 #define MOUSEKEY_INTERVAL 32
 
