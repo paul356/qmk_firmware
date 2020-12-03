@@ -18,13 +18,15 @@
 
 void keyboard_post_init_user(void) {
     palSetLineMode(C13, PAL_MODE_OUTPUT_PUSHPULL);
+    debug_enable=true;
+    debug_matrix=true;
 }
 
 static bool keyState = false;
 bool process_record_kb(uint16_t keycode, keyrecord_t *record)
 {
     switch (keycode) {
-    case KC_ESC:
+    default:
         if (record->event.pressed) {
             keyState = !keyState;
             if (keyState) {
@@ -33,8 +35,6 @@ bool process_record_kb(uint16_t keycode, keyrecord_t *record)
                 palClearLine(C13);
             }
         }
-        return true;
-    default:
         return true;
     }
 }
