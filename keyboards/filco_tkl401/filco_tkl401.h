@@ -18,6 +18,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include "quantum.h"
 
+enum CustomKeyCode {
+    USER_M1 = SAFE_RANGE,
+    USER_M2,
+    USER_M3
+};
+
 #define LAYOUT_ansi( \
     KESC,       K0F1, K0F2, K0F3, K0F4, K0F5, K0F6, K0F7, K0F8, K0F9, KF10, KF11, KF12,    KPRS, KSLK, KBRK, \
     KGRV, K001, K002, K003, K004, K005, K006, K007, K008, K009, K000, KMIN, KEQL, BSPS,    INST, HOME, PGUP, \

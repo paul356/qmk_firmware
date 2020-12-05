@@ -18,14 +18,32 @@
 
 void keyboard_post_init_user(void) {
     palSetLineMode(C13, PAL_MODE_OUTPUT_PUSHPULL);
-    debug_enable=true;
-    debug_matrix=true;
 }
 
 static bool keyState = false;
 bool process_record_kb(uint16_t keycode, keyrecord_t *record)
 {
     switch (keycode) {
+    case USER_M1:
+        if (record->event.pressed) {
+            SEND_STRING("#include <stdio.h>\n" \
+                        "#include <stdlib.h>\n" \
+                        "int main(int argc, char* argv[])\n"  \
+                        "{\n" \
+                        "    printf(\"Hello world\\n\");\n" \
+                        "}\n");
+        }
+        break;
+    case USER_M2:
+        if (record->event.pressed) {
+            SEND_STRING(SS_LCTL("k") SS_LCTL("_"));
+        }
+        break;
+    case USER_M3:
+        if (record->event.pressed) {
+            SEND_STRING("I am MACRO3. How do you do?\n");
+        }
+        break;
     default:
         if (record->event.pressed) {
             keyState = !keyState;
@@ -35,6 +53,7 @@ bool process_record_kb(uint16_t keycode, keyrecord_t *record)
                 palClearLine(C13);
             }
         }
-        return true;
+        break;
     }
+    return true;
 }
