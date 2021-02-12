@@ -18,20 +18,51 @@
 
 void keyboard_post_init_user(void) {
     palSetLineMode(C13, PAL_MODE_OUTPUT_PUSHPULL);
+    palClearLine(C13);
 }
 
 static bool keyState = false;
 bool process_record_kb(uint16_t keycode, keyrecord_t *record)
 {
     switch (keycode) {
-    case USER_M1:
+    case CTRL_X_1:
         if (record->event.pressed) {
-            SEND_STRING("#include <stdio.h>\n" \
-                        "#include <stdlib.h>\n" \
-                        "int main(int argc, char* argv[])\n"  \
-                        "{\n" \
-                        "    printf(\"Hello world\\n\");\n" \
-                        "}\n");
+            SEND_STRING(SS_LCTL("x") "1");
+        }
+        break;
+    case CTRL_X_2:
+        if (record->event.pressed) {
+            SEND_STRING(SS_LCTL("x") "2");
+        }
+        break;
+    case CTRL_X_3:
+        if (record->event.pressed) {
+            SEND_STRING(SS_LCTL("x") "3");
+        }
+        break;
+    case CTRL_X_0:
+        if (record->event.pressed) {
+            SEND_STRING(SS_LCTL("x") "0");
+        }
+        break;
+    case CTRL_X_U:
+        if (record->event.pressed) {
+            SEND_STRING(SS_LCTL("x") "u");
+        }
+        break;
+    case CTRL_X_O:
+        if (record->event.pressed) {
+            SEND_STRING(SS_LCTL("x") "o");
+        }
+        break;
+    case CTRL_X_S:
+        if (record->event.pressed) {
+            SEND_STRING(SS_LCTL("x") "s");
+        }
+        break;
+    case CTRL_X_Z:
+        if (record->event.pressed) {
+            SEND_STRING(SS_LCTL("x") "z");
         }
         break;
     case USER_M2:
@@ -39,12 +70,17 @@ bool process_record_kb(uint16_t keycode, keyrecord_t *record)
             SEND_STRING(SS_LCTL("k") SS_LCTL("_"));
         }
         break;
-    case USER_M3:
+    case CTRL_X_B:
         if (record->event.pressed) {
-            SEND_STRING("I am MACRO3. How do you do?\n");
+            SEND_STRING(SS_LCTL("x") "b");
         }
         break;
-    default:
+    case CTRL_X_SPC:
+        if (record->event.pressed) {
+            SEND_STRING(SS_LCTL("x") " ");
+        }
+        break;
+    case KC_CAPS:
         if (record->event.pressed) {
             keyState = !keyState;
             if (keyState) {
@@ -53,6 +89,8 @@ bool process_record_kb(uint16_t keycode, keyrecord_t *record)
                 palClearLine(C13);
             }
         }
+        break;
+    default:
         break;
     }
     return true;

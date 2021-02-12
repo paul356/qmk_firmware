@@ -19,9 +19,17 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "quantum.h"
 
 enum CustomKeyCode {
-    USER_M1 = SAFE_RANGE,
+    CTRL_X_1 = SAFE_RANGE,
+    CTRL_X_2,
+    CTRL_X_3,
+    CTRL_X_0,
+    CTRL_X_U,
+    CTRL_X_O,
+    CTRL_X_S,
+    CTRL_X_Z,
     USER_M2,
-    USER_M3
+    CTRL_X_B,
+    CTRL_X_SPC
 };
 
 #define LAYOUT_ansi( \

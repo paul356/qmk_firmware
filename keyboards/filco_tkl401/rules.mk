@@ -8,7 +8,7 @@ STM32_BOOTLOADER_ADDRESS = 0x1FFF0000
 #   change yes to no to disable
 #
 BOOTMAGIC_ENABLE = no       # Virtual DIP switch configuration
-MOUSEKEY_ENABLE = yes       # Mouse keys
+MOUSEKEY_ENABLE = no        # Mouse keys
 EXTRAKEY_ENABLE = no        # Audio control and System control
 KEYBOARD_SHARED_EP = no
 CONSOLE_ENABLE = no         # Console for debug
@@ -22,5 +22,6 @@ BACKLIGHT_DRIVER = software
 RGBLIGHT_ENABLE = no        # Enable keyboard RGB underglow
 BLUETOOTH_ENABLE = no       # Enable Bluetooth
 AUDIO_ENABLE = no           # Audio output
+DYNAMIC_MACRO_ENABLE = yes
 
 LAYOUTS = default
